@@ -1,8 +1,13 @@
 #include <iostream>
+#include "utility/Vec2D.hpp"
+
 using namespace std;
 
+
 int main() {
-	cout << "Hello World" << endl; // prints
+  Vec2D aVec(4, 4);
+
+	cout << aVec << endl;
 
 	return 0;
 }
