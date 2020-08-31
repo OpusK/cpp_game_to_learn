@@ -106,7 +106,7 @@ Vec2D Vec2D::GetUnitVec() const
 
 Vec2D& Vec2D::Normalize()
 {
-  float mag = Mag();
+  float mag = Magnitude();
 
   if(mag > EPSILON)
   {
