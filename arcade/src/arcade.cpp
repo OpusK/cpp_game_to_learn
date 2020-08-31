@@ -7,7 +7,7 @@ using namespace std;
 int main() {
   Vec2D aVec(4, 4);
 
-	cout << aVec << endl;
+	cout << 3*aVec << endl;
 
 	return 0;
 }
