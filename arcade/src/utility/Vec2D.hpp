@@ -5,6 +5,8 @@
 class Vec2D
 {
 public:
+  static const Vec2D Zero;
+
   Vec2D():Vec2D(0, 0){}
   Vec2D(float x, float y):mX(x), mY(y){}
 
@@ -29,6 +31,12 @@ public:
   Vec2D operator-(const Vec2D& vec) const;
   Vec2D& operator+=(const Vec2D& vec);
   Vec2D& operator-=(const Vec2D& vec);
+
+  float MagnitudeSquared() const;
+  float Magnitude() const;
+
+  Vec2D GetUnitVec() const;
+  Vec2D& Normalize();
 
 private:
   float mX, mY;

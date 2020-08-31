@@ -4,6 +4,9 @@
 #include <cassert>
 #include <cmath>
 
+const Vec2D Vec2D::Zero;
+
+
 std::ostream& operator<<(std::ostream& consoleOut, const Vec2D& vec)
 {
   std::cout << "X: " << vec.mX << ", Y: " << vec.mY << std::endl;
@@ -76,5 +79,39 @@ Vec2D& Vec2D::operator+=(const Vec2D& vec)
 Vec2D& Vec2D::operator-=(const Vec2D& vec)
 {
   *this = *this - vec;
+  return *this;
+}
+
+float Vec2D::MagnitudeSquared() const
+{
+  return mX * mX + mY * mY;
+}
+
+float Vec2D::Magnitude() const
+{
+  return sqrt(MagnitudeSquared());
+}
+
+Vec2D Vec2D::GetUnitVec() const
+{
+  float mag = Magnitude();
+
+  if(mag > EPSILON)
+  {
+    return *this / mag;
+  }
+
+  return Vec2D::Zero;
+}
+
+Vec2D& Vec2D::Normalize()
+{
+  float mag = Mag();
+
+  if(mag > EPSILON)
+  {
+    *this /= mag;
+  }
+
   return *this;
 }
